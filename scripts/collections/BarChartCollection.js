@@ -3,7 +3,7 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 module.exports = Backbone.Collection.extend({
-	url: 'http://cdh-vir-1.it.gu.se:8900/motioner/barchart/parties',
+	url: 'https://ppd-ngin.dh.gu.se/motioner/barchart/parties',
 	includeTotal: false,
 
 	initialize: function() {

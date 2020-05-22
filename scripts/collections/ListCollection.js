@@ -5,7 +5,7 @@ var ListItemModel = require('./../models/ListItemModel');
 module.exports = Backbone.Collection.extend({
 	model: ListItemModel,
 
-	url: 'http://cdh-vir-1.it.gu.se:8900/motioner/hits',
+	url: 'https://ppd-ngin.dh.gu.se/motioner/hits',
 
 	search: function(query, timeRange, queryMode) {
 		this.pageIndex = 0;

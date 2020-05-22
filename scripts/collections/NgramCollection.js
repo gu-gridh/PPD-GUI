@@ -3,12 +3,12 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 module.exports = Backbone.Collection.extend({
-	url: 'http://cdh-vir-1.it.gu.se:8900/motioner/timeline/search',
+	url: 'https://ppd-ngin.dh.gu.se/motioner/timeline/search',
 	includeTotal: false,
 
 	initialize: function() {
 		this.totalCollection = new Backbone.Collection();
-		this.totalCollection.url = 'http://cdh-vir-1.it.gu.se:8900/motioner/timeline/total';
+		this.totalCollection.url = 'https://ppd-ngin.dh.gu.se/motioner/timeline/total';
 		this.totalCollection.fetch();
 	},
 
