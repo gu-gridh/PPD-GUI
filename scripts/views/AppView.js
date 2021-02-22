@@ -8,6 +8,7 @@ var NgramView = require('./NgramView');
 var RegeringView = require('./RegeringView');
 var SliderView = require('./SliderView');
 var ListView = require('./ListView');
+var config = require('../../config');
 
 module.exports = Backbone.View.extend({
 	parties: [
@@ -156,8 +157,8 @@ module.exports = Backbone.View.extend({
 		}
 	],
 
-	startYear: 1971,
-	endYear: 2016,
+	startYear: config.startYear,
+	endYear: config.endYear,
 
 	initialize: function() {
 		this.router = new AppRouter();
@@ -287,7 +288,7 @@ module.exports = Backbone.View.extend({
 	initSlider: function() {
 		this.sliderView = new SliderView({
 			el: this.$el.find('#sliderContainer'),
-			range: [1971, 2016]
+			range: [config.startYear, config.endYear]
 		});
 		this.sliderView.on('change', _.bind(function(event) {
 			this.router.navigate('search/'+this.searchInput.getQueryString()+(this.searchInput.getQueryMode() != 'exact' ? '/querymode/'+this.searchInput.getQueryMode() : '')+'/'+event.values[0]+'/'+event.values[1], {

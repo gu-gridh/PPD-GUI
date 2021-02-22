@@ -3,6 +3,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 var d3 = require('d3');
 var NgramCollection = require('./../collections/NgramCollection');
+var config = require('../../config');
 
 module.exports = Backbone.View.extend({
 
@@ -26,8 +27,8 @@ module.exports = Backbone.View.extend({
 		left: 60
 	},
 
-	startYear: 1971,
-	endYear: 2016,
+	startYear: config.startYear,
+	endYear: config.endYear,
 
 	/*
 		Initialize the module
@@ -256,7 +257,7 @@ module.exports = Backbone.View.extend({
 		}
 
 		// Create x range scale which we will use to position points on the graph
-		this.xRange = d3.scale.linear().range([this.graphMargins.left, this.graphWidth - this.graphMargins.right]).domain([1970, 2016]);
+		this.xRange = d3.scale.linear().range([this.graphMargins.left, this.graphWidth - this.graphMargins.right]).domain([config.startYear, config.endYear]);
 
 		// Collect all y values from the result collection
 		this.createYRangeValues();

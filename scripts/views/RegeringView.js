@@ -2,6 +2,7 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 var _ = require('underscore');
 var d3 = require('d3');
+var config = require('../../config');
 
 module.exports = Backbone.View.extend({
 	graphWidth: 1120,
@@ -21,8 +22,8 @@ module.exports = Backbone.View.extend({
 		left: 60
 	},
 
-	startYear: 1971,
-	endYear: 2016,
+	startYear: config.startYear,
+	endYear: config.endYear,
 
 	initialize: function(options) {
 		this.options = options;
@@ -58,7 +59,7 @@ module.exports = Backbone.View.extend({
 			this.xRangeValues = this.xRangeValues.sort();
 		}
 
-		this.xRange = d3.scale.linear().range([this.graphMargins.left, this.graphWidth - this.graphMargins.right]).domain([1970, 2016]);
+		this.xRange = d3.scale.linear().range([this.graphMargins.left, this.graphWidth - this.graphMargins.right]).domain([config.startYear, config.endYear]);
 
 		this.vis.selectAll('rect')
 			.data(this.collection.models)
